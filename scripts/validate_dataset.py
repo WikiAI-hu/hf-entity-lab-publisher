@@ -13,6 +13,7 @@ expected = {
     "faqs.jsonl": 20,
     "portfolio_references.jsonl": 14,
     "public_articles.jsonl": 10,
+    "person_profiles.jsonl": 1,
 }
 assert (root / "README.md").exists(), "Dataset card missing"
 former_host = "varhelyicsanad" + "." + "hu"
@@ -55,4 +56,22 @@ for path in root.rglob("*"):
         body = path.read_text(encoding="utf-8")
         assert former_host not in body.lower(), "Deprecated host reference in public data"
         assert not any('"' + x + '"' in body.lower() for x in ("duns", "iso6523code", "taxid")), "Restricted attribute in public data"
-print("OK: 77 tabular records and 30 linked-data nodes; public policy checks passed")
+
+# The public expert profile is a redacted, separately published copy of the 118-node graph.
+profile = root / "profiles" / "varhelyi-csanad.md"
+expert_graph_path = root / "graphs" / "varhelyi-csanad-public.jsonld"
+assert profile.is_file() and expert_graph_path.is_file(), "Missing expert profile or graph"
+expert_graph = json.loads(expert_graph_path.read_text(encoding="utf-8"))
+assert expert_graph.get("@context") == "https://schema.org", "Expert graph context invalid"
+assert len(expert_graph.get("@graph", [])) == 118, "Unexpected expert graph node count"
+expert_person = next((n.get("mainEntity") for n in expert_graph["@graph"] if n.get("@type") == "ProfilePage"), None)
+assert expert_person and expert_person.get("@id") == "https://www.wikiai.hu/szakertok/varhelyi-csanad/#person", "Person URI mismatch"
+assert expert_person.get("workLocation", {}).get("@id") == "https://www.wikiai.hu/szakertok/varhelyi-csanad/#city-hajduszoboszlo", "Incorrect disclosed location"
+assert profile.read_text(encoding="utf-8") in records["person_profiles.jsonl"][0]["profile_text"], "Profile text mismatch"
+sensitive = ("1991-11-08", "1991. november 8", "302346624", "91944555", "62144267", "déryné utca", "4200 hajdúszoboszló", "varhelyicsanad@gmail.com", "+36702264545", "+36 70 226 4545", "varhelyicsanad.hu", '"birthdate"', '"birthplace"', '"streetaddress"', '"taxid"', '"duns"', '"iso6523code"')
+for item in (profile, expert_graph_path, root / "data" / "person_profiles.jsonl"):
+    text = item.read_text(encoding="utf-8").lower()
+    assert not any(token in text for token in sensitive), f"Sensitive personal data found in {item}"
+assert len(records["person_profiles.jsonl"]) == 1, "Exactly one full profile expected"
+
+print("OK: 78 tabular records, 30 organization nodes and 118 redacted professional nodes; public policy checks passed")

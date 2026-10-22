@@ -10,7 +10,7 @@ This dedicated repository is the GitHub Actions publisher for [Hugging Face Wiki
 
 ## Published content
 
-`dataset/` is a **curated public projection** of 77 linked editorial records from the WordPress source and its versioned GitHub snapshots: 17 business profiles, 9 WikiAI documents, 4 identity records, 3 editor-authored DOI publications, 20 public FAQs, 14 portfolio reference links and 10 public article links. A separate compact public JSON-LD graph is included.
+`dataset/` is a **curated public projection** of 78 linked editorial records from the WordPress source and its versioned GitHub snapshots: 17 business profiles, 9 WikiAI documents, 4 identity records, 3 editor-authored DOI publications, 20 public FAQs, 14 portfolio reference links and 10 public article links, plus one full, privacy-redacted expert dossier and 118-node personal JSON-LD graph. A separate compact public JSON-LD graph is included.
 
 Changes to `dataset/` trigger `.github/workflows/publish.yml`. It validates inputs then pushes to the Hugging Face dataset using Trusted Publisher OIDC (no stored Hugging Face API token).
 
@@ -21,3 +21,7 @@ Changes to `dataset/` trigger `.github/workflows/publish.yml`. It validates inpu
 Validation: `python3 scripts/validate_dataset.py`.
 
 See [Hungarian setup](SETUP-HU.md).
+
+## Professional profile export
+
+The publication includes [the privacy-redacted complete professional Markdown](dataset/profiles/varhelyi-csanad.md), [a source-derived 118-node JSON-LD graph](dataset/graphs/varhelyi-csanad-public.jsonld), and a `person_profiles` JSONL dataset record. Public location is limited to **Hajdúszoboszló, Hungary** for the personal identity; birthday/birthplace, exact address, personal contacts and business IDs are excluded. The [official WikiAI profile](https://www.wikiai.hu/szakertok/varhelyi-csanad/) remains canonical.

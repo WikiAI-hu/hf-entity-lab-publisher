@@ -43,15 +43,19 @@ configs:
     data_files:
       - split: train
         path: data/public_articles.jsonl
+  - config_name: person_profiles
+    data_files:
+      - split: train
+        path: data/person_profiles.jsonl
 ---
 
-# WikiAI Entity Lab — source-linked public knowledge (v0.2.0)
+# WikiAI Entity Lab — source-linked public knowledge (v0.3.0)
 
 **Publisher:** [WikiAI.hu](https://www.wikiai.hu/) · **Snapshot:** 22 October 2026 · **Hugging Face:** [wikiaihu](https://huggingface.co/wikiaihu) · **Publishing source:** [GitHub](https://github.com/WikiAI-hu/hf-entity-lab-publisher).
 
 This dataset is a **third-layer public distribution of editorial metadata**. The canonical authority for public assertions is WikiAI.hu, and its [GitHub knowledge mirror](https://github.com/WikiAI-hu/wikiai-entities) is a secondary revisioned representation. This Hub distribution is not a new canonical website, a business-ownership certificate, or independent proof of claims.
 
-## Contents (77 source-linked records)
+## Contents (78 source-linked records)
 
 | Configuration | Records | Purpose |
 |---|---:|---|
@@ -62,9 +66,16 @@ This dataset is a **third-layer public distribution of editorial metadata**. The
 | `faq` | 20 | Public search-intent questions and answers from the canonical expert page |
 | `portfolio_references` | 14 | Publicly presented project URLs, not a list of confirmed paid engagements |
 | `public_articles` | 10 | Public Medium and LinkedIn editorial links |
-| **Total** | **77** | |
+| `person_profiles` | 1 | Full professional text snapshot with a separately redacted 118-node JSON-LD profile graph |
+| **Total** | **78** | |
 
-A separate `entity-graph.jsonld` provides 30 linked-data nodes and editorial provenance pointers. It is a **curated public projection**; it is **not** a complete copy of the live private/operational JSON-LD graph in WordPress.
+A separate `entity-graph.jsonld` provides 30 linked-data nodes and editorial provenance pointers. The additional [`graphs/varhelyi-csanad-public.jsonld`](graphs/varhelyi-csanad-public.jsonld) preserves the 118 main nodes of the supplied professional graph after privacy redaction; [`profiles/varhelyi-csanad.md`](profiles/varhelyi-csanad.md) contains the accompanying complete public professional text. It is a **curated public projection**; it is **not** a complete copy of the live private/operational JSON-LD graph in WordPress.
+
+## Public personal profile (privacy-redacted)
+
+The `person_profiles` configuration contains the full public professional Markdown snapshot of Csanád Várhelyi / Várhelyi Csanád, including career history, qualifications, publications, documented talks, references, editorial activity and published FAQs. The standalone, sanitized 118-node JSON-LD graph preserves the source's semantic relationships, with personal data minimization applied to both exports.
+
+**Location disclosed:** Hajdúszoboszló, Hungary. **Excluded:** birth date and birthplace, precise postal address, private contact details, tax and company registration IDs, and D-U-N-S. The full WordPress graph and canonical website are not modified by this export. Business/project geography (e.g. Debrecen) may remain as subject matter, not a residence claim. The export does not assert third-party endorsement or model-generated ranking guarantees.
 
 ## Canonical entity separation
 
@@ -104,7 +115,9 @@ Sensitive identifiers, confidential client data and proprietary implementation r
 
 ## Technical structure
 
-- `data/*.jsonl` — machine-readable records with configuration-specific schemas
+- `data/*.jsonl` — machine-readable records with configuration-specific schemas (including the complete privacy-redacted professional text)
+- `profiles/varhelyi-csanad.md` — complete human-readable professional profile snapshot
+- `graphs/varhelyi-csanad-public.jsonld` — 118-node source-linked, privacy-redacted professional graph
 - `entity-graph.jsonld` — public Linked Data and editorial source relationships
 - [Publishing code and controls](https://github.com/WikiAI-hu/hf-entity-lab-publisher) — validation, OIDC publishing, public metadata history
 - [Separate Hugging Face Entity Lab Space](https://huggingface.co/spaces/wikiaihu/entity-lab) — distinct from this dataset and its machine-readable records
