@@ -1,0 +1,37 @@
+name: Publish WikiAI Entity Lab to Hugging Face
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dataset/**'
+      - 'scripts/validate_dataset.py'
+      - '.github/workflows/publish.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: wikiai-hf-publish-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'WikiAI-hu/hf-entity-lab-publisher'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate
+        run: python3 scripts/validate_dataset.py
+      - name: Install Hugging Face CLI
+        run: |
+          curl -LsSf https://hf.co/cli/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Publish via trusted OIDC identity
+        env:
+          HF_OIDC_RESOURCE: datasets/wikiaihu/entity-lab
+        run: |
+          hf upload wikiaihu/entity-lab ./dataset . \
+            --repo-type dataset \
+            --commit-message "WikiAI Entity Lab sync ${GITHUB_SHA::7}"

@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://www.wikiai.hu/#organization",
+      "@type": "Organization",
+      "name": "WikiAI.hu",
+      "url": "https://www.wikiai.hu/"
+    }
+  ]
+}
