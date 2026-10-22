@@ -1,0 +1,30 @@
+name: Publish WikiAI organization card
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  publish:
+    if: github.repository == 'WikiAI-hu/hf-entity-lab-publisher'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Ensure public card is clean
+        run: |
+          test -f organization-card/README.md
+          ! grep -Ei 'varhelyicsanad[.]hu|d[.-]?u[.-]?n[.-]?s' organization-card/README.md
+      - name: Install Hugging Face CLI
+        run: |
+          curl -LsSf https://hf.co/cli/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Publish organization card Space through OIDC
+        env:
+          HF_OIDC_RESOURCE: spaces/wikiaihu/README
+        run: |
+          hf upload wikiaihu/README ./organization-card/README.md README.md \
+            --repo-type space \
+            --commit-message "WikiAI organization profile sync"

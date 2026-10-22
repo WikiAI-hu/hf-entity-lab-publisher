@@ -2,10 +2,531 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@id": "https://www.wikiai.hu/#organization",
-      "@type": "Organization",
+      "@type": "WebSite",
+      "@id": "https://www.wikiai.hu/#website",
+      "url": "https://www.wikiai.hu/",
       "name": "WikiAI.hu",
-      "url": "https://www.wikiai.hu/"
+      "inLanguage": [
+        "hu-HU",
+        "en-US"
+      ],
+      "publisher": {
+        "@id": "https://www.wikiai.hu/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/#organization",
+      "name": "WikiAI.hu",
+      "alternateName": "WikiAI",
+      "url": "https://www.wikiai.hu/",
+      "foundingDate": "2026-09-08",
+      "description": "Hungarian editorial business knowledge and AI interpretability platform. Operated by Várhelyi Viktória, with a separate editorial team.",
+      "founder": {
+        "@id": "https://www.wikiai.hu/szakertok/varhelyi-viktoria/#person"
+      },
+      "logo": "https://www.wikiai.hu/wp-content/uploads/2026/09/wikiailogo2.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Déryné utca 3.",
+        "postalCode": "4200",
+        "addressLocality": "Hajdúszoboszló",
+        "addressCountry": "HU"
+      },
+      "sameAs": [
+        "https://huggingface.co/wikiaihu",
+        "https://github.com/WikiAI-hu"
+      ],
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Google Place ID (source-reported)",
+          "value": "ChIJX7JzxIobR0cRoyjtp7va_1c"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Google Maps CID (source-reported)",
+          "value": "6341027299872024739"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Google Knowledge Graph ID (source-reported)",
+          "value": "/g/11nw114f0r"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "OpenStreetMap node ID (source-reported)",
+          "value": "14303812090"
+        }
+      ],
+      "publishingPrinciples": "https://www.wikiai.hu/ai-atlathatosag-szerzoi-jogok/"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wikiai.hu/szakertok/varhelyi-viktoria/#person",
+      "name": "Várhelyi Viktória",
+      "url": "https://www.wikiai.hu/szakertok/varhelyi-viktoria/",
+      "description": "Founder and operator of the WikiAI.hu platform.",
+      "affiliation": {
+        "@id": "https://www.wikiai.hu/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wikiai.hu/szakertok/varhelyi-csanad/#person",
+      "name": "Várhelyi Csanád",
+      "alternateName": [
+        "Csanád Várhelyi",
+        "Csanad Varhelyi"
+      ],
+      "url": "https://www.wikiai.hu/szakertok/varhelyi-csanad/",
+      "jobTitle": [
+        "Responsible editor and lead editorial author at WikiAI.hu",
+        "AI Web Developer",
+        "SEO, AEO, GEO and LLMO Specialist"
+      ],
+      "description": "Hungarian web developer and AI visibility specialist, WikiAI.hu responsible editor and lead editorial author. Also operates an independent professional service separate from the WikiAI publishing organization.",
+      "affiliation": {
+        "@id": "https://www.wikiai.hu/#organization"
+      },
+      "worksFor": {
+        "@id": "https://www.wikiai.hu/szakertok/varhelyi-csanad/#professional-service"
+      },
+      "owns": {
+        "@id": "https://www.wikiai.hu/szakertok/varhelyi-csanad/#professional-service"
+      },
+      "sameAs": [
+        "https://orcid.org/0009-0006-7599-3731",
+        "https://openalex.org/authors/A5135596920",
+        "https://scholar.google.com/citations?user=8v2EfToAAAAJ",
+        "https://github.com/varhelyicsanad",
+        "https://huggingface.co/varhelyicsanad"
+      ],
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Google Knowledge Graph ID (source-reported)",
+          "value": "/g/11mzcpwnjr"
+        }
+      ],
+      "knowsAbout": [
+        "AI-readable website architecture",
+        "Entity Engineering",
+        "SEO",
+        "Local SEO",
+        "AEO",
+        "GEO",
+        "LLMO",
+        "JSON-LD",
+        "Knowledge Graph",
+        "Semantic HTML",
+        "Core Web Vitals"
+      ],
+      "workLocation": [
+        {
+          "@id": "https://www.wikiai.hu/#city-hajduszoboszlo"
+        },
+        {
+          "@id": "https://www.wikiai.hu/#city-debrecen"
+        }
+      ],
+      "subjectOf": [
+        {
+          "@id": "https://doi.org/10.5281/zenodo.20069426"
+        },
+        {
+          "@id": "https://doi.org/10.5281/zenodo.20422832"
+        },
+        {
+          "@id": "https://doi.org/10.5281/zenodo.23295826"
+        }
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.wikiai.hu/szakertok/varhelyi-csanad/#professional-service",
+      "name": "Várhelyi Csanád – AI web development and search visibility",
+      "url": "https://www.wikiai.hu/szakertok/varhelyi-csanad/",
+      "founder": {
+        "@id": "https://www.wikiai.hu/szakertok/varhelyi-csanad/#person"
+      },
+      "description": "Independent AI web development, SEO, Local SEO, AEO, GEO, LLMO and structured data services. This service is not the WikiAI.hu publishing organization.",
+      "areaServed": [
+        {
+          "@id": "https://www.wikiai.hu/#city-debrecen"
+        },
+        {
+          "@id": "https://www.wikiai.hu/#city-hajduszoboszlo"
+        },
+        {
+          "@id": "https://www.wikiai.hu/#country-hungary"
+        }
+      ],
+      "serviceType": [
+        "AI website development",
+        "SEO",
+        "Local SEO",
+        "AEO",
+        "GEO",
+        "LLMO"
+      ]
+    },
+    {
+      "@type": "City",
+      "@id": "https://www.wikiai.hu/#city-debrecen",
+      "name": "Debrecen",
+      "sameAs": "https://www.wikidata.org/wiki/Q79880",
+      "containedInPlace": {
+        "@id": "https://www.wikiai.hu/#country-hungary"
+      }
+    },
+    {
+      "@type": "City",
+      "@id": "https://www.wikiai.hu/#city-hajduszoboszlo",
+      "name": "Hajdúszoboszló",
+      "sameAs": "https://www.wikidata.org/wiki/Q830404",
+      "containedInPlace": {
+        "@id": "https://www.wikiai.hu/#country-hungary"
+      }
+    },
+    {
+      "@type": "City",
+      "@id": "https://www.wikiai.hu/#city-budapest",
+      "name": "Budapest",
+      "sameAs": "https://www.wikidata.org/wiki/Q1781",
+      "containedInPlace": {
+        "@id": "https://www.wikiai.hu/#country-hungary"
+      }
+    },
+    {
+      "@type": "Country",
+      "@id": "https://www.wikiai.hu/#country-hungary",
+      "name": "Magyarország",
+      "sameAs": "https://www.wikidata.org/wiki/Q28"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://doi.org/10.5281/zenodo.20069426",
+      "name": "A Theoretical and Methodological Framework for LLM-First Website Architecture: Conceptual Clarification, Industry Positioning, and Application Directions in the Era of Generative Search",
+      "url": "https://doi.org/10.5281/zenodo.20069426",
+      "identifier": "10.5281/zenodo.20069426",
+      "author": {
+        "@id": "https://www.wikiai.hu/szakertok/varhelyi-csanad/#person"
+      },
+      "datePublished": "2026",
+      "inLanguage": "en",
+      "description": "Author-indexed DOI publication; DOI presence does not imply peer review or institutional endorsement."
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://doi.org/10.5281/zenodo.20422832",
+      "name": "The Machine-Readable Web",
+      "url": "https://doi.org/10.5281/zenodo.20422832",
+      "identifier": "10.5281/zenodo.20422832",
+      "author": {
+        "@id": "https://www.wikiai.hu/szakertok/varhelyi-csanad/#person"
+      },
+      "datePublished": "2026",
+      "inLanguage": "en",
+      "description": "Author-indexed DOI publication; DOI presence does not imply peer review or institutional endorsement."
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://doi.org/10.5281/zenodo.23295826",
+      "name": "People-First, LLM-First: Digital Interpretability of Hungarian Enterprises in the Era of AI-Mediated Search: WikiAI.hu as an Applied Business Knowledge Platform",
+      "url": "https://doi.org/10.5281/zenodo.23295826",
+      "identifier": "10.5281/zenodo.23295826",
+      "author": {
+        "@id": "https://www.wikiai.hu/szakertok/varhelyi-csanad/#person"
+      },
+      "datePublished": "2026",
+      "inLanguage": "en",
+      "description": "Author-indexed DOI publication; DOI presence does not imply peer review or institutional endorsement."
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://huggingface.co/datasets/wikiaihu/entity-lab#dataset",
+      "name": "WikiAI Entity Lab",
+      "url": "https://huggingface.co/datasets/wikiaihu/entity-lab",
+      "creator": {
+        "@id": "https://www.wikiai.hu/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.wikiai.hu/#organization"
+      },
+      "inLanguage": [
+        "hu-HU",
+        "en-US"
+      ],
+      "dateModified": "2026-10-22",
+      "version": "0.2.0",
+      "description": "Source-linked public entity metadata, editorial business profiles, identity references, author publications, FAQs, and portfolio reference pointers. Maintained by WikiAI.hu; rights remain with respective holders.",
+      "isBasedOn": [
+        "https://github.com/WikiAI-hu/wikiai-entities",
+        "https://www.wikiai.hu/"
+      ],
+      "citation": {
+        "@type": "CreativeWork",
+        "name": "WikiAI Entity Lab first deposited revision 257860c",
+        "identifier": "10.57967/hf/11200",
+        "url": "https://doi.org/10.57967/hf/11200"
+      },
+      "conditionsOfAccess": "Publicly accessible; no dataset-wide permission to train AI models or freely reuse underlying third-party content is granted by this metadata record."
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/bipress-kft-bip-flex/#business",
+      "name": "BIPRESS Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/bipress-kft-bip-flex/",
+      "description": "A BIPRESS Kft. több mint három évtizede működő debreceni hidraulikai és fluidumtechnikai vállalkozás. A cég fő területe a szerelt hidraulika-, ipari- és légféktömlők egyedi és sorozatgyártása, a tömlők konfekcionálása, a hidraulikai és pneumatikai csatlakozástechnika, valamint az ipari alkatrészek B2B nagykereskedelmi ellátása. Saját márkája a BIP-FLEX, amel",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/bipress-kft-bip-flex/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/bipress-kft-bip-flex.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://bolyakiantikvitas.hu/#business",
+      "name": "Bolyáki Antikvitás és Műhely",
+      "mainEntityOfPage": "https://www.wikiai.hu/bolyaki-antikvitas-es-muhely-hajduszoboszlo/",
+      "description": "A Bolyáki Antikvitás és Műhely egy hajdúszoboszlói bútorkészítő műhely, amelynek szakmai múltja 1996-ig nyúlik vissza. A vállalkozás fő területe az egyedi bútorgyártás, a stílbútor-készítés, valamint klasszikus és modern önálló bútordarabok megvalósítása. A műhely neve elsősorban olyan bútorokhoz kapcsolódik, ahol a megrendelő nem egyszerűen egy szabványos m",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/bolyaki-antikvitas-es-muhely-hajduszoboszlo/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/bolyaki-antikvitas-es-muhely-hajduszoboszlo.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.csarnokgyartasdebrecen.hu/#business",
+      "name": "Csarnok-Gyártó Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/csarnok-gyarto-kft/",
+      "description": "Csarnokgyártás • acélszerkezet-gyártás • úszókapu • hegesztés • inox • egyedi fémszerkezet A Csarnok-Gyártó Kft. hajdúszoboszlói fémszerkezet-gyártó és kivitelező vállalkozás. Fő tevékenysége acélszerkezetek és csarnokvázak gyártása, valamint olyan kapcsolódó fémipari munkák végzése, mint az úszókapuk készítése, a hegesztés, az egyedi acél-, alumínium- és ro",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/csarnok-gyarto-kft/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/csarnok-gyarto-kft.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/europa-terv-kft-debrecen/#business",
+      "name": "Európa Terv Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/europa-terv-kft-debrecen/",
+      "description": "Az Európa Terv Kft. debreceni központtal működő magyar fejlesztési és projekt-tanácsadó vállalkozás. Négy fő szolgáltatási területe a pályázatírás, a projektmenedzsment, a pályázatfigyelés és a tanulmánykészítés. A társaság 2007 óta működik, alapítója és ügyvezetője Lakatos Tibor. A vállalkozás tevékenysége az évek során a klasszikus pályázatírásnál széleseb",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/europa-terv-kft-debrecen/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/europa-terv-kft-debrecen.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/gold-ablak-kft/#business",
+      "name": "Gold Ablak Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/gold-ablak-kft/",
+      "description": "Nyílászáró értékesítés • ablakcsere • ajtócsere • PVC és alumínium rendszerek • szakszerű beépítés • redőny • szúnyogháló • párkány • légbevezető A Gold Ablak Kft. hajdúszoboszlói nyílászáró-kivitelező vállalkozás, amely új gyártású kültéri műanyag és alumínium nyílászárók, bejárati ajtók és kapcsolódó árnyékolástechnikai rendszerek értékesítésével és szaksz",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/gold-ablak-kft/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/gold-ablak-kft.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/gyemant-ingatlaniroda-salgotarjan/#business",
+      "name": "Gyémánt Ingatlaniroda",
+      "mainEntityOfPage": "https://www.wikiai.hu/gyemant-ingatlaniroda-salgotarjan/",
+      "description": "Ingatlanközvetítés, ingatlaneladás, ingatlanvásárlás és finanszírozási ügyintézés salgótarjáni központtal, elsősorban Nógrád és Heves vármegyében. A Gyémánt Ingatlaniroda olyan ingatlanügyletekben nyújt személyes segítséget, ahol az eladó vagy a vevő nem csupán egy hirdetési felületet keres, hanem az egész folyamatot átlátó közvetítőt. A munka az ingatlan és",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/gyemant-ingatlaniroda-salgotarjan/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/gyemant-ingatlaniroda-salgotarjan.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/hajduszoboszloi-asvanyviz-kft-ballonos-viz-debrecen/#business",
+      "name": "Hajdúszoboszlói Ásványvíz Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/hajduszoboszloi-asvanyviz-kft-ballonos-viz-debrecen/",
+      "description": "A Hajdúszoboszlói Ásványvíz Kft. hajdúszoboszlói központú ivóvíz-szolgáltató vállalkozás, amely 19 literes ballonos ivóvíz forgalmazásával és kiszállításával, balloncsere-rendszerrel, valamint vízadagolók bérbeadásával, értékesítésével és karbantartásával foglalkozik. A cég működését nem egyetlen termék értékesítéseként érdemes szemlélni. A rendszer több, eg",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/hajduszoboszloi-asvanyviz-kft-ballonos-viz-debrecen/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/hajduszoboszloi-asvanyviz-kft-ballonos-viz-debrecen.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/kohlberger-bau-kft/#business",
+      "name": "Kohlberger Bau Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/kohlberger-bau-kft/",
+      "description": "Generálkivitelezés · családi és társasházak · szerkezetépítés · szárazépítés · homlokzati munkák · ipari és intézményi referenciák A Kohlberger Bau Kft. magyar építőipari kivitelező és generálkivitelező vállalkozás. A cég munkáiban a lakóépületek kivitelezése, a szerkezetépítés, a szárazépítés, a homlokzati hőszigetelés, a földmunka és más szakipari feladato",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/kohlberger-bau-kft/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/kohlberger-bau-kft.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/kohlberger-epitoanyag-kft-tuzep-hajduszoboszlo/#business",
+      "name": "Kohlberger Építőanyag Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/kohlberger-epitoanyag-kft-tuzep-hajduszoboszlo/",
+      "description": "A Kohlberger Építőanyag Kft. hajdúszoboszlói tüzép és építőanyag-kereskedés, ahol az építkezésekhez és felújításokhoz szükséges alapanyagok mellett a beszerzéshez, kiszállításhoz és több kivitelezést támogató szolgáltatáshoz is lehet segítséget kérni. A vállalkozás ügyfélfogadási helye 4200 Hajdúszoboszló, Dobó István utca 12/A, és a helyi vásárlók mellett D",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/kohlberger-epitoanyag-kft-tuzep-hajduszoboszlo/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/kohlberger-epitoanyag-kft-tuzep-hajduszoboszlo.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/mia-trans-kft-nemzetkozi-kozuti-arufuvarozas-autoipari-logisztika/#business",
+      "name": "M.I.A. Trans Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/mia-trans-kft-nemzetkozi-kozuti-arufuvarozas-autoipari-logisztika/",
+      "description": "A M.I.A. Trans Kft. Zalaegerszeg központú magyar közúti árufuvarozó, szállítmányozó és logisztikai szolgáltató vállalkozás, amelynek elsődleges szakterülete az Európai Unión belüli nemzetközi közúti árufuvarozás. A társaság működésének meghatározó része az autóipari beszállítói logisztikához, a teljes rakományos fuvarozáshoz, a rendszeresen ismétlődő járatok",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/mia-trans-kft-nemzetkozi-kozuti-arufuvarozas-autoipari-logisztika/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/mia-trans-kft-nemzetkozi-kozuti-arufuvarozas-autoipari-logisztika.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/nemethy-consulting-kft-nemethyne-nagy-judit/#business",
+      "name": "Némethy Consulting Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/nemethy-consulting-kft-nemethyne-nagy-judit/",
+      "description": "Hitelügyintézés • biztosítás • pályázatközvetítés • ingatlanhoz kapcsolódó ügyintézés • pénzügyi tájékozódás • mentorálás A Némethy Consulting Kft. Hajdúszoboszlóhoz kötődő magyar szakmai vállalkozás, amelynek szolgáltatásai a hitelügyintézéshez, biztosítási kérdésekhez, pályázati lehetőségekhez, ingatlanügyletekhez, megtakarítási és befektetési tájékozódásh",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/nemethy-consulting-kft-nemethyne-nagy-judit/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/nemethy-consulting-kft-nemethyne-nagy-judit.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/nyomdaipari-kkt-debrecen-cimkegyartas/#business",
+      "name": "Nyomdaipari Kkt.",
+      "mainEntityOfPage": "https://www.wikiai.hu/nyomdaipari-kkt-debrecen-cimkegyartas/",
+      "description": "A Nyomdaipari Kkt. Debrecenben működő, családi hátterű magyar nyomdaipari gyártóvállalkozás. Működésének középpontjában nem az alkalmi lakossági nyomtatás, hanem a gyártó és termelő vállalatok rendszeres ellátása áll. Fő szakterülete az ipari felhasználású címkegyártás , amelyhez kartondobozok, használati utasítások, terméktájékoztatók, csomagolási elemek és",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/nyomdaipari-kkt-debrecen-cimkegyartas/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/nyomdaipari-kkt-debrecen-cimkegyartas.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/porvadaszok-matractisztitas-debrecen/#business",
+      "name": "Porvadászok",
+      "mainEntityOfPage": "https://www.wikiai.hu/porvadaszok-matractisztitas-debrecen/",
+      "description": "A Porvadászok professzionális, helyszíni matrac-, kárpit- és szőnyegtisztításra szakosodott magyar szolgáltató, amely lakossági és üzleti megrendelők számára végez mélytisztítási munkákat. A vállalkozás központi szakmai szereplője Vincze Tibor, aki 2008 óta foglalkozik elsősorban matracok és más textilfelületek speciális tisztításával. A Porvadászok jogi hát",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/porvadaszok-matractisztitas-debrecen/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/porvadaszok-matractisztitas-debrecen.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/szines-pillanat-eskuvoi-fotozas-videozas/#business",
+      "name": "Színes Pillanat",
+      "mainEntityOfPage": "https://www.wikiai.hu/szines-pillanat-eskuvoi-fotozas-videozas/",
+      "description": "Esküvői fotózás · esküvői videózás · esküvői film · Hajdúszoboszló · Debrecen · Hajdú-Bihar A Színes Pillanat hajdúszoboszlói kötődésű fotós-videós szolgáltatás, amelynek egyik legfontosabb területe az esküvők közös fényképes és filmes megörökítése. A név mögött Uhelszky Angéla fotós és Uhelszky Tamás videós, operatőr és vágó dolgozik. A két szerepkör egymás",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/szines-pillanat-eskuvoi-fotozas-videozas/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/szines-pillanat-eskuvoi-fotozas-videozas.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/tasca-ponte-debrecen/#business",
+      "name": "Tasca Ponte",
+      "mainEntityOfPage": "https://www.wikiai.hu/tasca-ponte-debrecen/",
+      "description": "A Tasca Ponte Debrecenben, a Faraktár utca 71. alatt működő családi bőráruüzlet és bőrkabát-szaküzlet. Női és férfi bőrkabátokat, táskákat, pénztárcákat, öveket és kesztyűket kínál személyes vásárlással. Aki bőrkabátot keres Debrecenben, itt kézbe veheti a terméket, felpróbálhatja a fazont, és a méretet, az anyagot meg a használati szempontokat együtt mérleg",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/tasca-ponte-debrecen/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/tasca-ponte-debrecen.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tomitesgyarmagyarorszag.hu/#business",
+      "name": "TÖRÖK és TÁRSAI Kft.",
+      "mainEntityOfPage": "https://www.wikiai.hu/torok-es-tarsai-kft-tomitesgyar/",
+      "description": "Tömítésgyártás · egyedi és sorozatgyártás · műszaki gumitermékek · műanyag-feldolgozás · Hajdúszoboszló A TÖRÖK és TÁRSAI Kft., közismert szakmai nevén Tömítésgyár, hajdúszoboszlói magyar gyártó- és kereskedelmi vállalkozás. Fő profilja az egyedi és sorozatgyártott tömítések, ipari és gépészeti tömítőelemek, O-gyűrűk, műszaki gumitermékek, tömítőlemezek, jár",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/torok-es-tarsai-kft-tomitesgyar/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/torok-es-tarsai-kft-tomitesgyar.md"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.wikiai.hu/varganya-etterem-matraszentimre/#restaurant",
+      "name": "Vargánya Étterem",
+      "mainEntityOfPage": "https://www.wikiai.hu/varganya-etterem-matraszentimre/",
+      "description": "A Vargánya Étterem egy második generációs, családi étterem Mátraszentimrén, a Felső-Mátra csendes, hegyvidéki környezetében. A hely hangulatát a családi vendéglátás, a magyar és szlovák konyhai hagyományok, a vadételek, az erdei gombák és a mátrai környezet adják. A névadó vargánya több fogásban is visszatérő alapanyag, de a kínálat jóval szélesebb: házias l",
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "url": "https://www.wikiai.hu/varganya-etterem-matraszentimre/",
+        "publisher": {
+          "@id": "https://www.wikiai.hu/#organization"
+        },
+        "isBasedOn": "https://github.com/WikiAI-hu/wikiai-entities/blob/454892330dbe09dc73ce3ee1bad7b99cda12f06e/entities/varganya-etterem-matraszentimre.md"
+      }
     }
   ]
 }

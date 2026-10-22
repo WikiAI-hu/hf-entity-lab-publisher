@@ -1,20 +1,23 @@
-# WikiAI Entity Lab — GitHub publisher
+# WikiAI Entity Lab — public publishing source
 
-Dedicated **public** publication source for [WikiAI.hu](https://www.wikiai.hu/) entity data. This repository is separate from the existing WikiAI GitHub mirror.
+This dedicated repository is the GitHub Actions publisher for [Hugging Face WikiAI Entity Lab](https://huggingface.co/datasets/wikiaihu/entity-lab), **separate from the pre-existing WikiAI WordPress→GitHub mirror**. The WordPress domain is canonical.
 
-- Target dataset: https://huggingface.co/datasets/wikiaihu/entity-lab
-- First dataset DOI: https://doi.org/10.57967/hf/11200 (revision `257860c`; it does not verify the data)
-- Publishable source: `dataset/`
-- Workflow: `.github/workflows/publish.yml`
-- Documentation: `SETUP-HU.md`
+- Hugging Face Dataset: https://huggingface.co/datasets/wikiaihu/entity-lab
+- Entity Lab Space (separate): https://huggingface.co/spaces/wikiaihu/entity-lab
+- Organization profile card Space (separate): https://huggingface.co/spaces/wikiaihu/README
+- Canonical editorial site: https://www.wikiai.hu/
+- Original dataset DOI, revision `257860c`: https://doi.org/10.57967/hf/11200
 
-A push to `main` modifying the dataset, validation script or publishing workflow triggers validation followed by upload via Hugging Face Trusted Publishers and GitHub Actions OIDC. No long-lived Hugging Face token is required. You can also use Actions → Run workflow.
+## Published content
 
-**Security:** only approved public entity information may be published. Never commit credentials, confidential client data, personal secrets, or proprietary implementation details. Changes to this public repository can automatically become public on Hugging Face.
+`dataset/` is a **curated public projection** of 77 linked editorial records from the WordPress source and its versioned GitHub snapshots: 17 business profiles, 9 WikiAI documents, 4 identity records, 3 editor-authored DOI publications, 20 public FAQs, 14 portfolio reference links and 10 public article links. A separate compact public JSON-LD graph is included.
 
-The initial JSONL and JSON-LD content is a small technical seed, **not** a completed entity registry, independent verification, or an endorsement by Hugging Face. No reuse license has yet been designated. Deleted GitHub files are not automatically deleted from the Hugging Face repository.
+Changes to `dataset/` trigger `.github/workflows/publish.yml`. It validates inputs then pushes to the Hugging Face dataset using Trusted Publisher OIDC (no stored Hugging Face API token).
 
-## Verify
-Run `python3 scripts/validate_dataset.py` and check https://github.com/WikiAI-hu/hf-entity-lab-publisher/actions followed by the dataset's **Files and versions** tab.
+`organization-card/README.md` is the cleaned Hugging Face **organization-card Space** content, not a dataset card. The separate `publish-organization.yml` workflow is a manual-only deploy until a Trusted Publisher for `spaces/wikiaihu/README` is separately configured.
 
-Official docs: https://huggingface.co/docs/hub/trusted-publishers
+**Policy:** no unrelated Google profile identifiers, confidential data, unrestricted research-method recipes or decommissioned personal domain links. Publisher/author and independent business identity remain distinct. `license: other` is not a blanket licence to train models or reproduce third-party works. DOI assignment alone is not a research endorsement.
+
+Validation: `python3 scripts/validate_dataset.py`.
+
+See [Hungarian setup](SETUP-HU.md).

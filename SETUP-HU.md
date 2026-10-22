@@ -1,24 +1,29 @@
-# WikiAI Entity Lab – automatikus publikálás
+# WikiAI Entity Lab – publikálás és engedélyek
 
-A ChatGPT a csatlakoztatott GitHub eszközzel a `WikiAI-hu/hf-entity-lab-publisher` külön adattár tartalmát kezeli. A GitHub Actions az érvényesített, **publikus** fájlokat a `wikiaihu/entity-lab` Hugging Face Datasetbe publikálja, állandó API-token nélkül.
+Az új kiadói GitHub adattár: https://github.com/WikiAI-hu/hf-entity-lab-publisher. Az eredeti WordPress→GitHub tartalomtükör külön van, és a publikáló rendszer nem ír bele.
 
-## Egyszeri Hugging Face beállítás
-Nyisd meg: https://huggingface.co/datasets/wikiaihu/entity-lab/settings
+## 1. Dataset – OIDC kész
+Az `entity-lab` Dataset esetén a Trusted Publisher:
+- repository: `WikiAI-hu/hf-entity-lab-publisher`
+- branch: `main`
+- workflow: `publish.yml`
 
-A **Trusted Publishers / Megbízható kiadók** alatt rögzítsd:
-- Provider: GitHub Actions
-- Repository: `WikiAI-hu/hf-entity-lab-publisher`
-- Branch: `main`
-- Workflow: `publish.yml`
+Publikálás: a `dataset/` könyvtár módosítása után automatikusan indul. 
+Ellenőrzés: https://github.com/WikiAI-hu/hf-entity-lab-publisher/actions és https://huggingface.co/datasets/wikiaihu/entity-lab/tree/main
 
-Az adatok betöltéséhez a GitHub `main` ágán lévő `.github/workflows/publish.yml` automatikusan fut, ha a `dataset/` fájlok változnak.
+## 2. WikiAI Hugging Face szervezeti kártya – KÜLÖN OIDC beállítás kell
+A WikiAI szervezeti bemutatkozás **nem** a Dataset README; az alábbi Space szolgálja ki:
+https://huggingface.co/spaces/wikiaihu/README
 
-## Ellenőrzés
-- GitHub Actions: https://github.com/WikiAI-hu/hf-entity-lab-publisher/actions
-- Hugging Face fájlok: https://huggingface.co/datasets/wikiaihu/entity-lab/tree/main
-- Első DOI: https://doi.org/10.57967/hf/11200 (Revision `257860c`)
+A Space beállításaiban **Settings → Trusted Publishers → Add**:
+- provider: GitHub Actions
+- repository: `WikiAI-hu/hf-entity-lab-publisher`
+- branch: `main`
+- workflow: `publish-organization.yml`
 
-A DOI egy konkrét revízió bibliográfiai hivatkozása; későbbi verzióra új DOI készülhet. A DOI-val rendelkező repó törlése, átnevezése és láthatóságának módosítása korlátozott, és ügyfélszolgálati támogatást igényelhet.
+Ezután a GitHub **Actions → Publish WikiAI organization card → Run workflow** indításával a `organization-card/README.md` fájl a Space `README.md` fájljává publikálható. Addig csak GitHubon van előkészítve; az org-oldal tartalmát nem módosítja.
 
-## Biztonság
-Sem jelszó, sem API-token, sem bizalmas ügyféladat, sem védett technikai recept ne kerüljön ebbe a nyilvános adattárba. A kezdeti entitásadat csak technikai tesztadat, nem külső hitelesítés. Adatlicencet az adattár tulajdonosa választ.
+## 3. Adatminőség
+A kanonikus állítások WikiAI.hu oldalról erednek, a GitHub tükörből forrásverzió szerint gyűjtött rövid leírásokkal. Az Entity Lab nem azonos egy kutatóintézeti akkreditációval, független harmadik fél általi hitelesítéssel vagy szabad felhasználási engedéllyel.
+
+Az első eredeti DOI: `10.57967/hf/11200` – revízió `257860c`; későbbi változatokhoz a pontos commitot kell hivatkozni.
