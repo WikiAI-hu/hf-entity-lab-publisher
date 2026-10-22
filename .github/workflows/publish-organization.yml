@@ -1,5 +1,10 @@
 name: Publish WikiAI organization card
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'organization-card/**'
+      - '.github/workflows/publish-organization.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -12,10 +17,19 @@ jobs:
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Ensure public card is clean
         run: |
           test -f organization-card/README.md
+          python3 - <<'PY'
+          from pathlib import Path
+          card = Path('organization-card/README.md').read_text(encoding='utf-8')
+          assert card.startswith('---\n'), 'Missing Space README front matter'
+          header = card.split('---', 2)[1]
+          summaries = [x.split(':', 1)[1].strip().strip('"\'') for x in header.splitlines() if x.startswith('short_description:')]
+          assert len(summaries) == 1 and 0 < len(summaries[0]) <= 60, 'Hugging Face short_description must contain 1-60 characters'
+          print(f'Valid Hugging Face short_description: {len(summaries[0])} characters')
+          PY
           ! grep -Ei 'varhelyicsanad[.]hu|d[.-]?u[.-]?n[.-]?s' organization-card/README.md
       - name: Install Hugging Face CLI
         run: |

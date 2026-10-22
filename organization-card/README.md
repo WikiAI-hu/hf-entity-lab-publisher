@@ -5,7 +5,7 @@ colorFrom: blue
 colorTo: pink
 sdk: static
 pinned: false
-short_description: Human-centered, machine-readable business knowledge and LLM-first web architecture
+short_description: AI-readable business knowledge and linked data
 ---
 
 # WikiAI.hu
