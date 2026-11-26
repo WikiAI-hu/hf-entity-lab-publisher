@@ -5,7 +5,7 @@ colorFrom: blue
 colorTo: pink
 sdk: static
 pinned: false
-short_description: AI-readable business knowledge and linked data
+short_description: AI visibility, entity engineering and developer tools
 ---
 
 # WikiAI.hu
@@ -22,12 +22,25 @@ The platform combines editorial work, practical website development, structured 
 
 WikiAI.hu is operated by **Várhelyi Viktória**, a Hungarian sole proprietor. **Csanád Várhelyi (Várhelyi Csanád)** serves as responsible editor and a lead professional author. The WikiAI platform and the editor's independent research publications are distinct, but related, activities.
 
+## Featured Project — WikiAI Schema Peek
+
+**WikiAI Schema Peek 1.1.0** is a free Hungarian–English developer tool for JSON-LD inspection, Schema.org vocabulary checks and entity engineering. Its professional concept was developed by **Csanád Várhelyi (Várhelyi Csanád)** as an applied WikiAI.hu project. The Chrome extension examines structured data and relevant metadata in the active page's rendered DOM; the Hugging Face web demo runs the same inspection engine on JSON-LD supplied by the user, without needing the extension.
+
+- [Try WikiAI Schema Peek online](https://huggingface.co/spaces/wikiaihu/wikiai-schema-peek)
+- [Official product documentation and privacy information](https://www.wikiai.hu/wikiai-schema-peek/)
+- [Public GitHub source repository, documentation and tests](https://github.com/WikiAI-hu/wikiai-schema-peek)
+- [Download the Chrome extension ZIP (1.1.0)](https://raw.githubusercontent.com/WikiAI-hu/wikiai-schema-peek/main/downloads/WikiAI-Schema-Peek-1.1.0-Chrome.zip) — manual installation in Chrome developer mode
+
+The tool checks declared types, identifiers, entity references, repeated `@id` values, observed `sameAs` links, JSON syntax and selected domain/range rules. Its bundled Schema.org 30.1 snapshot covers 939 classes, 1,538 properties, 546 enumeration values and 309 selected domain/range rules. Processing takes place locally in the browser; the web demo does not fetch or scan external websites. Findings are diagnostic guidance, not full JSON-LD conformance validation, verified identity equivalence, search ranking or AI recommendation scores.
+
+**License and collaboration:** [Free Use / Source-Available License 1.0](https://github.com/WikiAI-hu/wikiai-schema-peek/blob/main/LICENSE.md) permits free personal and professional use, including paid client audits. Rights in protected original code are reserved; modification and redistribution require separate permission, subject to applicable legal and platform exceptions. The adapted Schema.org vocabulary retains its separate CC BY-SA 3.0 license. [Professional collaboration and contribution policy](https://github.com/WikiAI-hu/wikiai-schema-peek/blob/main/CONTRIBUTING.md).
+
 ## Focus Areas
 
 - **LLM-first website architecture:** organizing websites around understandable entities, evidence and clearly defined information relationships.
 - **Semantic web and structured data:** Schema.org, JSON-LD, entity references and consistent public profiles.
 - **Knowledge graphs and entity engineering:** documenting connections between organizations, people, places, services and publications.
-- **Search and AI interpretability:** SEO, AEO, GEO and LLMO approaches that emphasize information quality over ranking claims.
+- **Search and AI interpretability:** technical SEO, Local SEO, Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), Large Language Model Optimization (LLMO) and AI visibility, emphasizing information quality over ranking claims.
 - **Digital provenance and trust:** source attribution, traceability, transparent editorial context and reviewable technical documentation.
 - **Applied business knowledge:** documenting the actual activities and services of Hungarian enterprises in a structured, human-readable way.
 
@@ -70,6 +83,7 @@ The following DOI-identified works were authored by **Csanád Várhelyi** and ar
 ## Entity Lab and public datasets
 
 - [WikiAI Entity Lab Dataset](https://huggingface.co/datasets/wikiaihu/entity-lab)
+- [WikiAI Entity Lab Space](https://huggingface.co/spaces/wikiaihu/entity-lab)
 - [Dataset publishing repository](https://github.com/WikiAI-hu/hf-entity-lab-publisher)
 - [Knowledge index and public snapshots](https://github.com/WikiAI-hu/wikiai-entities)
 
@@ -80,7 +94,8 @@ The following DOI-identified works were authored by **Csanád Várhelyi** and ar
 - Editorial and legal information: <https://www.wikiai.hu/impresszum/>
 - Responsible editor: <https://www.wikiai.hu/szakertok/varhelyi-csanad/>
 - Hugging Face organization: <https://huggingface.co/wikiaihu>
+- GitHub organization: <https://github.com/WikiAI-hu>
 
 ---
 
-*This page documents the WikiAI.hu platform and its publicly referenced technical and editorial activities. It does not claim that WikiAI.hu is a separately accredited research institute or that Hugging Face certifies its research. Last prepared: October 2026.*
+*This page documents the WikiAI.hu platform and its publicly referenced technical and editorial activities. It does not claim that WikiAI.hu is a separately accredited research institute or that Hugging Face certifies its research. Last updated: 26 November 2026.*
