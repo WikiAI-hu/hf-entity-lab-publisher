@@ -1,0 +1,49 @@
+name: Publish WikiAI Schema Peek Space
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/deploy/schema-peek.request'
+permissions:
+  contents: read
+concurrency:
+  group: wikiai-schema-peek-space-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'WikiAI-hu/hf-entity-lab-publisher' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate pinned engine and demo
+        run: |
+          cd schema-peek-space
+          test "$(git hash-object extension/core.js)" = a85547b4541c241f678dfcfddf064538c0701594
+          test "$(git hash-object extension/validate.js)" = 469b7795e626a012ac83ce9750078e449b931c0b
+          test "$(git hash-object extension/vocabulary.js)" = f62d1d441dd05f02371f5ac811b6632aaa0c25f9
+          test "$(git hash-object extension/SCHEMA-ATTRIBUTION.txt)" = 79bc14ae86ac0f921c91df79b1d0920780bc118b
+          node --check app.js
+          node --test ../scripts/test-schema-peek-space.mjs
+          test -f LICENSE.md
+          test -f CONTRIBUTING.md
+          grep -qx 'sdk: static' README.md
+          grep -qx 'app_file: index.html' README.md
+          grep -qx 'license: other' README.md
+      - name: Install Hugging Face CLI
+        run: |
+          curl -LsSf https://hf.co/cli/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Publish only the Schema Peek Space via OIDC
+        env:
+          HF_OIDC_RESOURCE: spaces/wikiaihu/wikiai-schema-peek
+        run: |
+          hf upload wikiaihu/wikiai-schema-peek ./schema-peek-space . \
+            --repo-type space \
+            --commit-message "WikiAI Schema Peek 1.1.0 demo ${GITHUB_SHA::7}"

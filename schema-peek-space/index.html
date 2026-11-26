@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="WikiAI Schema Peek 1.1.0 interactive JSON-LD and Schema.org inspection demo. Local processing in your browser.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>WikiAI Schema Peek | JSON-LD demo</title>
+<style>
+:root{color-scheme:light;--ink:#163046;--muted:#526674;--line:#cddce3;--accent:#075c6a;--paper:#fff;--soft:#f2f7f8}*{box-sizing:border-box}body{margin:0;background:var(--soft);color:var(--ink);font:15px/1.55 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:18px}h1{font-size:clamp(24px,4vw,36px);line-height:1.15;margin:8px 0}h2{font-size:19px;margin:0 0 12px}h3{font-size:16px;margin:16px 0 8px}p{margin:8px 0}a{color:var(--accent);text-underline-offset:3px}small,.muted{color:var(--muted)}.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--accent)}.panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px;margin:18px 0}label{display:block;font-weight:650;margin:12px 0 5px}textarea,input{width:100%;border:1px solid #97afbb;border-radius:7px;padding:10px;background:#fff;color:var(--ink);font:inherit}textarea{min-height:230px;resize:vertical;font:13px/1.55 ui-monospace,monospace}button{font:inherit;font-weight:650;border:1px solid var(--accent);border-radius:7px;padding:8px 13px;background:#fff;color:var(--accent);cursor:pointer}button.primary{background:var(--accent);color:#fff}button:disabled{opacity:.5;cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #2b92a0;outline-offset:3px}.actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}.metric{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:11px}.metric strong{display:block;font-size:25px;font-variant-numeric:tabular-nums}.metric span{font-size:12px;color:var(--muted)}.finding{border-top:1px solid var(--line);padding:12px 0;overflow-wrap:anywhere}.finding strong{display:block}.severity-error{color:#9e2929}.severity-warning{color:#825300}.severity-info{color:#355f80}code,pre{font-family:ui-monospace,monospace;overflow-wrap:anywhere}pre{white-space:pre-wrap;max-height:380px;overflow:auto;background:var(--soft);padding:12px;border-radius:8px;font-size:12px}details{border-top:1px solid var(--line);padding:12px 0}summary{cursor:pointer;font-weight:650}ul{padding-left:22px}.notice{border-left:3px solid var(--accent);padding-left:12px}footer{font-size:13px;padding:10px 0 24px;color:var(--muted)}[hidden]{display:none!important}@media(max-width:560px){main{padding:14px}.panel{padding:14px}header{flex-direction:column}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div><div class="eyebrow">WikiAI.hu · 1.1.0 · Interactive demo</div><h1>WikiAI Schema Peek</h1><p data-en="Entity Engineering &amp; JSON-LD Inspector" data-hu="Entitásmérnökség és JSON-LD vizsgáló"></p></div>
+<button id="language" type="button" aria-label="Change language">Magyar</button>
+</header>
+<p class="notice" data-en="Paste JSON-LD to run the same inspection engine as the Chrome extension. This demo does not fetch or inspect live websites, does not use an AI model, and does not measure search rankings." data-hu="Illessz be JSON-LD-t a Chrome-bővítményével azonos vizsgálómotor kipróbálásához. A demó nem tölti le és nem vizsgálja az élő weboldalakat, nem használ AI-modellt és nem mér keresőhelyezést."></p>
+<section class="panel" aria-labelledby="input-heading">
+<h2 id="input-heading" data-en="Input" data-hu="Bemenet"></h2>
+<label for="json" data-en="JSON-LD object, array or @graph" data-hu="JSON-LD objektum, tömb vagy @graph"></label>
+<textarea id="json" spellcheck="false" maxlength="1000000" aria-describedby="privacy"></textarea>
+<label for="base" data-en="Optional source URL (for resolving relative identifiers)" data-hu="Opcionális forrás-URL (relatív azonosítók feloldásához)"></label>
+<input id="base" type="url" value="https://example.invalid/" maxlength="2048" autocomplete="off" spellcheck="false">
+<p id="privacy" class="muted" data-en="The pasted content and report stay in this browser. The app does not upload inputs or resolve external contexts. Avoid sharing confidential or personal data. The hosting platform may log ordinary page requests." data-hu="A beillesztett tartalom és a riport ebben a böngészőben marad. Az alkalmazás nem küldi el a bemenetet, és nem tölti le a külső kontextusokat. Bizalmas vagy személyes adatot ne ossz meg. A tárhelyszolgáltató naplózhatja a szokásos oldallekéréseket."></p>
+<div class="actions"><button id="run" class="primary" data-en="Inspect JSON-LD" data-hu="JSON-LD vizsgálata" type="button"></button><button id="sample" data-en="Load example" data-hu="Példa betöltése" type="button"></button><button id="invalid" data-en="Load flawed example" data-hu="Hibás példa betöltése" type="button"></button><button id="clear" data-en="Clear" data-hu="Törlés" type="button"></button></div>
+<p id="status" role="status" aria-live="polite"></p>
+</section>
+<section id="results" class="panel" hidden aria-labelledby="results-heading">
+<h2 id="results-heading" data-en="Inspection results" data-hu="Vizsgálati eredmények"></h2>
+<div class="metrics" id="metrics"></div>
+<p id="coverage" class="muted"></p><p id="limits" class="notice"></p>
+<h3 data-en="Findings" data-hu="Megállapítások"></h3><div id="findings"></div>
+<details><summary data-en="Declared entities and types" data-hu="Deklarált entitások és típusok"></summary><pre id="entities"></pre></details>
+<details><summary data-en="Identifiers and sameAs values" data-hu="Azonosítók és sameAs értékek"></summary><pre id="relationships"></pre></details>
+<details><summary data-en="Complete JSON report" data-hu="Teljes JSON-riport"></summary><pre id="raw"></pre></details>
+<div class="actions"><button id="download" type="button" data-en="Download report (JSON)" data-hu="Riport letöltése (JSON)"></button></div>
+</section>
+<footer>
+<p data-en="Checks the bundled Schema.org vocabulary and selected domain/range rules. Findings are diagnostic guidance, not full Schema.org or Google Rich Results validation. Observed identity links are not verified." data-hu="A csomagolt Schema.org szókészletet és kiválasztott domain/range szabályokat vizsgálja. A megállapítások diagnosztikai útmutatások, nem teljes Schema.org- vagy Google Rich Results-validálás. Az azonossági hivatkozások valódiságát nem igazolja."></p>
+<p><a href="https://www.wikiai.hu/wikiai-schema-peek/" target="_blank" rel="noopener noreferrer">WikiAI.hu · Official product page</a> · <a href="https://github.com/WikiAI-hu/wikiai-schema-peek" target="_blank" rel="noopener noreferrer">GitHub · Chrome extension</a> · <a href="https://github.com/WikiAI-hu/wikiai-schema-peek/blob/main/downloads/WikiAI-Schema-Peek-1.1.0-Chrome.zip" target="_blank" rel="noopener noreferrer">Chrome ZIP</a></p>
+<p>Professional concept: <a href="https://www.wikiai.hu/szakertok/varhelyi-csanad/" target="_blank" rel="noopener noreferrer">Várhelyi Csanád</a> · <a href="https://www.varhelyicsanad.hu/" target="_blank" rel="noopener noreferrer">Professional reference</a> · <a href="https://www.wikiai.hu/wikiai-schema-peek/#privacy-policy" target="_blank" rel="noopener noreferrer">Privacy</a> · <a href="https://github.com/WikiAI-hu/wikiai-schema-peek/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">License</a> · <a href="https://github.com/WikiAI-hu/wikiai-schema-peek/blob/main/extension/SCHEMA-ATTRIBUTION.txt" target="_blank" rel="noopener noreferrer">Schema.org attribution</a></p>
+</footer>
+</main><script type="module" src="./app.js"></script>
+</body></html>
