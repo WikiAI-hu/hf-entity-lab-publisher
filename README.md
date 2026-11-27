@@ -14,7 +14,22 @@ This dedicated repository is the GitHub Actions publisher for [Hugging Face Wiki
 
 Changes to `dataset/` trigger `.github/workflows/publish.yml`. It validates inputs then pushes to the Hugging Face dataset using Trusted Publisher OIDC (no stored Hugging Face API token).
 
-`organization-card/README.md` is the cleaned Hugging Face **organization-card Space** content, not a dataset card. The separate `publish-organization.yml` workflow is a manual-only deploy until a Trusted Publisher for `spaces/wikiaihu/README` is separately configured.
+`organization-card/README.md` is the cleaned Hugging Face **organization-card Space** content, not a dataset card. The separate `publish-organization.yml` workflow publishes to `spaces/wikiaihu/README` using its dedicated Trusted Publisher OIDC configuration. It runs when the organization-card source or its workflow changes on `main`, or by manual dispatch.
+
+## WikiAI Schema Peek — separate software demonstration
+
+The [WikiAI Schema Peek Space](https://huggingface.co/spaces/wikiaihu/wikiai-schema-peek) is an independent static browser-based application in the WikiAI.hu technical ecosystem, separate from the Entity Lab dataset, the Entity Lab Space and the organization-card Space.
+
+Its `schema-peek-space/` source uses the pinned 1.1.0 JSON-LD inspection engine and adapted Schema.org 30.1 vocabulary. It analyzes user-pasted JSON-LD locally in the browser; it does not fetch the supplied website or inspect the current tab. The [Chrome extension](https://chrome.google.com/webstore/detail/glegjhmdanhbloojggfdphgohgfmmheh) is the separate installable edition.
+
+- [Official software documentation](https://www.wikiai.hu/wikiai-schema-peek/)
+- [Chrome extension source, tests and license](https://github.com/WikiAI-hu/wikiai-schema-peek)
+- [Product Hunt — public launch, 27 November 2026](https://www.producthunt.com/products/wikiai-schema-peek?launch=wikiai-schema-peek)
+- [English technical article](https://www.wikiai.hu/wikiai-schema-peek-a-practical-json-ld-and-entity-engineering-tool-for-chrome/)
+- [Online demo](https://huggingface.co/spaces/wikiaihu/wikiai-schema-peek)
+- [Demo source](https://github.com/WikiAI-hu/hf-entity-lab-publisher/tree/main/schema-peek-space)
+
+`publish-schema-peek.yml` validates the pinned inspection-engine blobs, tests and static application metadata, then publishes only `schema-peek-space/` to the dedicated `spaces/wikiaihu/wikiai-schema-peek` OIDC resource. It is triggered by `.github/deploy/schema-peek.request` changes on `main` or manual dispatch. A README-only documentation change does not trigger this deployment. The application is source-available under its project license; the adapted Schema.org vocabulary has a separate CC BY-SA 3.0 license.
 
 **Policy:** no unrelated Google profile identifiers, confidential data, unrestricted research-method recipes or decommissioned personal domain links. Publisher/author and independent business identity remain distinct. `license: other` is not a blanket licence to train models or reproduce third-party works. DOI assignment alone is not a research endorsement.
 
