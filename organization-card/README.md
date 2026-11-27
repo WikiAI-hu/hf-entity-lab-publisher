@@ -26,6 +26,11 @@ WikiAI.hu is operated by **Várhelyi Viktória**, a Hungarian sole proprietor. *
 
 **WikiAI Schema Peek 1.1.0** is a free Hungarian–English developer tool for JSON-LD inspection, Schema.org vocabulary checks and entity engineering. Its professional concept was developed by **Csanád Várhelyi (Várhelyi Csanád)** as an applied WikiAI.hu project. The Chrome extension examines structured data and relevant metadata in the active page's rendered DOM; the Hugging Face web demo runs the same inspection engine on JSON-LD supplied by the user, without needing the extension.
 
+**Public launch: 27 November 2026.** The Chrome extension is officially available for free installation from the Chrome Web Store, and the Product Hunt product page is public. Store installation does not require developer mode. Publication on these platforms is not certification of the tool's diagnostic results.
+
+- [Install WikiAI Schema Peek from the Chrome Web Store](https://chrome.google.com/webstore/detail/glegjhmdanhbloojggfdphgohgfmmheh)
+- [Product Hunt — public product launch](https://www.producthunt.com/products/wikiai-schema-peek?launch=wikiai-schema-peek)
+- [English technical article](https://www.wikiai.hu/wikiai-schema-peek-a-practical-json-ld-and-entity-engineering-tool-for-chrome/)
 - [Try WikiAI Schema Peek online](https://huggingface.co/spaces/wikiaihu/wikiai-schema-peek)
 - [Official product documentation and privacy information](https://www.wikiai.hu/wikiai-schema-peek/)
 - [Public GitHub source repository, documentation and tests](https://github.com/WikiAI-hu/wikiai-schema-peek)
@@ -98,4 +103,4 @@ The following DOI-identified works were authored by **Csanád Várhelyi** and ar
 
 ---
 
-*This page documents the WikiAI.hu platform and its publicly referenced technical and editorial activities. It does not claim that WikiAI.hu is a separately accredited research institute or that Hugging Face certifies its research. Last updated: 26 November 2026.*
+*This page documents the WikiAI.hu platform and its publicly referenced technical and editorial activities. It does not claim that WikiAI.hu is a separately accredited research institute or that Hugging Face certifies its research. Last updated: 27 November 2026.*
